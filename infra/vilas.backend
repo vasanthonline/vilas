@@ -1,0 +1,3 @@
+bucket = "vilas-tf-state"
+prefix = "static.tfstate.d"
+impersonate_service_account = "sa-vilas@vasanthgopal-5dec6.iam.gserviceaccount.com"

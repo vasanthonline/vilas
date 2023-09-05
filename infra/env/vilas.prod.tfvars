@@ -1,0 +1,8 @@
+project_id = "vasanthgopal-5dec6"
+region = "asia-south1"
+zone = "asia-south1-b"
+env="prod"
+tf_service_account = "sa-vilas@vasanthgopal-5dec6.iam.gserviceaccount.com"
+seeder_pub_sub_topic = "vilas-seeder-prod"
+seeder_dlq_pub_sub_topic = "vilas-seeder-prod-dlq"
+seeder_pub_sub_subscription = "vilas-seeder-prod-subscription"
