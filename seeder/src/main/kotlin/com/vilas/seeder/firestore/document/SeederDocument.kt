@@ -3,7 +3,7 @@ package com.vilas.seeder.firestore.document
 import com.google.cloud.firestore.annotation.DocumentId
 import com.google.cloud.spring.data.firestore.Document
 
-@Document(collectionName = "test_document")
+@Document(collectionName = "seeder")
 data class SeederDocument(
     @DocumentId
     val id: String? = null,

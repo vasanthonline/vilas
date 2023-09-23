@@ -1,7 +1,7 @@
 package com.vilas.seeder.service
 
 import com.vilas.seeder.firestore.document.SeederDocument
-import com.vilas.seeder.repository.SeederRepository
+import com.vilas.seeder.firestore.repository.SeederRepository
 import com.vilas.seeder.web.models.SeederRequest
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service

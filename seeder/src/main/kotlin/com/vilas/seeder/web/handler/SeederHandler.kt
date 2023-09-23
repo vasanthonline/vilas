@@ -22,8 +22,8 @@ class SeederHandler(
             .flatMap { seederFacade.seedUrls(it) }
             .flatMap {
                 ServerResponse.ok()
-                    .contentType(MediaType.TEXT_PLAIN)
-                    .bodyValue("Urls successfully seeded.")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .bodyValue(it)
             }
     }
 
