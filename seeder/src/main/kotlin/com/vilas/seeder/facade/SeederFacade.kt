@@ -1,6 +1,5 @@
 package com.vilas.seeder.facade
 
-import com.vilas.seeder.model.SeederRecord
 import com.vilas.seeder.service.SeederService
 import com.vilas.seeder.web.models.SeederRequest
 import com.vilas.seeder.web.models.SeederResponse

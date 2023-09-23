@@ -33,6 +33,7 @@ dependencies {
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	implementation("com.google.auth:google-auth-library-oauth2-http:0.21.1")
 	implementation("com.google.cloud:spring-cloud-gcp-starter-data-firestore")
+	implementation("com.google.cloud:spring-cloud-gcp-starter-pubsub")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")

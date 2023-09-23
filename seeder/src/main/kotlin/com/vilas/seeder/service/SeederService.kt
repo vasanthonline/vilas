@@ -2,6 +2,8 @@ package com.vilas.seeder.service
 
 import com.vilas.seeder.firestore.document.SeederDocument
 import com.vilas.seeder.firestore.repository.SeederRepository
+import com.vilas.seeder.model.SeederMessage
+import com.vilas.seeder.pubsub.SeederPublisher
 import com.vilas.seeder.web.models.SeederRequest
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
@@ -10,13 +12,24 @@ import java.util.*
 
 @Service
 class SeederService(
-    private val seederRepository: SeederRepository
+    private val seederRepository: SeederRepository,
+    private val seederPublisher: SeederPublisher,
 ) {
     fun seedUrls(seederRequest: SeederRequest): Flux<SeederDocument> {
         val seederDocuments = toSeederDocuments(seederRequest)
-        return seederRepository.saveAll(seederDocuments).doOnSubscribe {
-            logger.info("Seeded ${seederRequest.urls.size} urls successfully with job Id ${seederDocuments[0]?.jobId}.")
-        }
+
+        return seederRepository.saveAll(seederDocuments)
+            .doOnSubscribe {
+                logger.info("Seeded ${seederRequest.urls.size} urls successfully with job Id ${seederDocuments[0].jobId}.")
+            }
+            .map {
+                seederPublisher.publish(SeederMessage(
+                    documentId = it.id,
+                    url = it.url,
+                    jobId = it.jobId
+                ))
+                it
+            }
     }
 
     companion object {
