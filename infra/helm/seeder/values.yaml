@@ -1,0 +1,18 @@
+image:
+  registry: gcr.io
+  repository: northamerica-northeast2-docker.pkg.dev/vasanthgopal-5dec6/vilas-seeder/seeder
+  tag: latest
+  pullPolicy: Always
+
+service:
+  name: seeder
+  type: ClusterIP
+  port: 8080
+
+gateway:
+  type: ingressgateway
+  name: seeder-gateway
+
+virtualService:
+  name: seeder-virtual-service
+  host: seeder.vasanthgopal.com
